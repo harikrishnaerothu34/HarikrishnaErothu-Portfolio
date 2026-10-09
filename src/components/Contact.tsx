@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import { ScrollReveal } from './ScrollReveal';
 
 export const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -76,54 +77,57 @@ export const Contact = () => {
     <section className="py-20 max-w-7xl mx-auto px-6" id="contact">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         {/* Contact Info Column */}
-        <div className="lg:col-span-5 space-y-6">
-          <div className="space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#e8f0ec] text-[#245B4A] text-xs font-semibold">
-              GET IN TOUCH
-            </div>
-            <h2 className="text-3xl font-bold text-[#252724] tracking-tight">Let's Connect</h2>
-            <p className="text-sm text-[#68645C] leading-relaxed">
-              I am actively looking for software engineering, full-stack, and applied AI developer roles for 2026–2027. Feel free to send a message or contact directly.
-            </p>
-          </div>
-
-          <div className="space-y-3 pt-2">
-            <div className="flex items-center gap-3.5 p-3.5 rounded-xl bg-white border border-[#E5E1D8] shadow-subtle">
-              <div className="w-9 h-9 rounded-lg bg-[#e8f0ec] text-[#245B4A] flex items-center justify-center shrink-0">
-                <span className="material-symbols-outlined text-xl">mail</span>
+        <div className="lg:col-span-5">
+          <ScrollReveal delay={50} className="space-y-6">
+            <div className="space-y-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#e8f0ec] text-[#245B4A] text-xs font-semibold">
+                GET IN TOUCH
               </div>
-              <div className="overflow-hidden">
-                <div className="text-[11px] font-bold text-[#9E998F] uppercase tracking-wider">
-                  Email Address
-                </div>
-                <a
-                  className="text-xs sm:text-sm font-semibold text-[#252724] hover:text-[#245B4A] transition-colors truncate block"
-                  href={`mailto:${PERSONAL_INFO.email}`}
-                >
-                  {PERSONAL_INFO.email}
-                </a>
-              </div>
+              <h2 className="text-3xl font-bold text-[#252724] tracking-tight">Let's Connect</h2>
+              <p className="text-sm text-[#68645C] leading-relaxed">
+                I am actively looking for software engineering, full-stack, and applied AI developer roles for 2026–2027. Feel free to send a message or contact directly.
+              </p>
             </div>
 
-            <div className="flex items-center gap-3.5 p-3.5 rounded-xl bg-white border border-[#E5E1D8] shadow-subtle">
-              <div className="w-9 h-9 rounded-lg bg-[#faeeea] text-[#C66B4E] flex items-center justify-center shrink-0">
-                <span className="material-symbols-outlined text-xl">location_on</span>
-              </div>
-              <div>
-                <div className="text-[11px] font-bold text-[#9E998F] uppercase tracking-wider">
-                  Location
+            <div className="space-y-3 pt-2">
+              <div className="flex items-center gap-3.5 p-3.5 rounded-xl bg-white border border-[#E5E1D8] shadow-subtle">
+                <div className="w-9 h-9 rounded-lg bg-[#e8f0ec] text-[#245B4A] flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-xl">mail</span>
                 </div>
-                <span className="text-xs sm:text-sm font-semibold text-[#252724]">
-                  {PERSONAL_INFO.location}
-                </span>
+                <div className="overflow-hidden">
+                  <div className="text-[11px] font-bold text-[#9E998F] uppercase tracking-wider">
+                    Email Address
+                  </div>
+                  <a
+                    className="text-xs sm:text-sm font-semibold text-[#252724] hover:text-[#245B4A] transition-colors truncate block"
+                    href={`mailto:${PERSONAL_INFO.email}`}
+                  >
+                    {PERSONAL_INFO.email}
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3.5 p-3.5 rounded-xl bg-white border border-[#E5E1D8] shadow-subtle">
+                <div className="w-9 h-9 rounded-lg bg-[#faeeea] text-[#C66B4E] flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-xl">location_on</span>
+                </div>
+                <div>
+                  <div className="text-[11px] font-bold text-[#9E998F] uppercase tracking-wider">
+                    Location
+                  </div>
+                  <span className="text-xs sm:text-sm font-semibold text-[#252724]">
+                    {PERSONAL_INFO.location}
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
 
         {/* Contact Form Column */}
         <div className="lg:col-span-7">
-          <div className="bg-white border border-[#E5E1D8] rounded-2xl p-6 sm:p-8 shadow-card">
+          <ScrollReveal delay={150}>
+            <div className="bg-white border border-[#E5E1D8] rounded-2xl p-6 sm:p-8 shadow-card">
             <h3 className="text-xl font-bold text-[#252724] mb-1">Send a Message</h3>
             <p className="text-xs sm:text-sm text-[#68645C] mb-6">
               Connects via Formspree or direct inbox dispatch.
@@ -214,8 +218,9 @@ export const Contact = () => {
               </button>
             </form>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
-    </section>
+    </div>
+  </section>
   );
 };
