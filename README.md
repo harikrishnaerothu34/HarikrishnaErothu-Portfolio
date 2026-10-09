@@ -2,8 +2,8 @@
 
 A production-ready, responsive developer portfolio website built for **Erothu Harikrishna**, faithful to the Google Stitch approved design system (*Artisanal Engineering*).
 
-- **Live URL**: [https://portfolio-one-wine-19.vercel.app](https://portfolio-one-wine-19.vercel.app)
-- **Direct Resume**: [https://portfolio-one-wine-19.vercel.app/resume.pdf](https://portfolio-one-wine-19.vercel.app/resume.pdf)
+- **Live URL**: [https://harikrishnaerothu-portfolio.vercel.app](https://harikrishnaerothu-portfolio.vercel.app)
+- **Direct Resume**: [https://harikrishnaerothu-portfolio.vercel.app/resume.pdf](https://harikrishnaerothu-portfolio.vercel.app/resume.pdf)
 - **Contact**: `erothuharikrishna2@gmail.com`
 
 ---
