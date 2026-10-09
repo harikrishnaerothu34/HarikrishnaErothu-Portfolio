@@ -40,17 +40,6 @@ export const Hero = () => {
 
             <a
               className="inline-flex items-center gap-2 bg-white text-[#252724] border border-[#E5E1D8] hover:border-[#245B4A]/40 hover:bg-[#FAF9F6] px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 shadow-subtle"
-              href={PERSONAL_INFO.resumePdf}
-              target="_blank"
-              rel="noopener noreferrer"
-              title="View Resume in new browser tab"
-            >
-              <span className="material-symbols-outlined text-base text-[#68645C]">visibility</span>
-              <span>View Resume</span>
-            </a>
-
-            <a
-              className="inline-flex items-center gap-2 bg-white text-[#252724] border border-[#E5E1D8] hover:border-[#245B4A]/40 hover:bg-[#FAF9F6] px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 shadow-subtle"
               href={PERSONAL_INFO.githubUrl}
               rel="noopener noreferrer"
               target="_blank"

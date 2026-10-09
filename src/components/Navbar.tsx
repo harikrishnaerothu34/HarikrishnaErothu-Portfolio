@@ -1,19 +1,40 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+
+const NAV_LINKS = [
+  { label: 'Home', href: '#home', id: 'home' },
+  { label: 'About', href: '#about', id: 'about' },
+  { label: 'Skills', href: '#skills', id: 'skills' },
+  { label: 'Projects', href: '#projects', id: 'projects' },
+  { label: 'Experience', href: '#experience', id: 'experience' },
+  { label: 'Achievements', href: '#achievements', id: 'achievements' },
+  { label: 'Certifications', href: '#certifications', id: 'certifications' },
+  { label: 'Contact', href: '#contact', id: 'contact' },
+];
 
 export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('projects');
 
-  const navLinks = [
-    { label: 'Home', href: '#home' },
-    { label: 'About', href: '#about' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Achievements', href: '#achievements' },
-    { label: 'Certifications', href: '#certifications' },
-    { label: 'Contact', href: '#contact' },
-  ];
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: '-20% 0px -70% 0px' }
+    );
+
+    NAV_LINKS.forEach((link) => {
+      const el = document.getElementById(link.id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[#F7F5EF]/90 backdrop-blur-md border-b border-[#E5E1D8] transition-all">
@@ -35,15 +56,22 @@ export const Navbar = () => {
           aria-label="Main Navigation"
           className="hidden lg:flex items-center bg-white px-4 py-1.5 rounded-full border border-[#E5E1D8] gap-6 text-sm shadow-subtle"
         >
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              className="text-[#68645C] font-medium hover:text-[#245B4A] transition-colors"
-              href={link.href}
-            >
-              {link.label}
-            </a>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const isActive = activeSection === link.id;
+            return (
+              <a
+                key={link.label}
+                className={`transition-colors ${
+                  isActive
+                    ? 'text-[#245B4A] font-semibold'
+                    : 'text-[#68645C] font-medium hover:text-[#245B4A]'
+                }`}
+                href={link.href}
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </nav>
 
         {/* Right Action Button & Mobile Menu Toggle */}
@@ -78,7 +106,7 @@ export const Navbar = () => {
       {mobileMenuOpen && (
         <div className="lg:hidden bg-white/98 backdrop-blur-md border-b border-[#E5E1D8] px-6 py-4 space-y-3 shadow-card animate-in fade-in duration-150">
           <nav className="flex flex-col space-y-2">
-            {navLinks.map((link) => (
+            {NAV_LINKS.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
